@@ -13,8 +13,6 @@
 import Instructions from './Instructions.vue';
 import Cards from './Cards.vue'
 
-
-
 export default {
   name: 'HelloWorld',
   components: {

@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "description": "Cut all the trees",
+        "days": -90,
+        "money": 100
+    },
+    {
+        "id": 2,
+        "description": "Drill more oil",
+        "days": -70,
+        "money": 100
+    }
+]

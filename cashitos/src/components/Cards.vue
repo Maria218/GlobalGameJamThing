@@ -11,9 +11,9 @@
                 </div>
             </div>
         </div>
-        <div v-if="gameOver" class="flex flex-wrap">
-            <div v-for="index in cardInfo.slice(0,4)" v-bind:key="index" class="cards p-5 sm:w-1/2 md:w-1/2 lg:w-1/2">
-                <h2>Womp, womp! Earth is dead now. Start again plsss</h2>
+        <div v-if="gameOver">
+            <div>
+                <h1>You lose the game!</h1>
             </div>
         </div>
     </div>
@@ -260,6 +260,9 @@
                     this.gameOver = true
                 }
             }
+        },
+        mounted() {
+            this.endGame()
         }
     }
 </script>

@@ -37,6 +37,7 @@ export default {
   methods: {
     click() {
       this.instructions = false
+      new Audio(require("@/assets/audio/main_soundtrack.mp3")).play();
     }
   },
 }

@@ -26,8 +26,7 @@
         <h2>There are {{ daysLeft }} days left </h2>
      </div>
      <div v-if="daysLeft < 0">
-        <h1>Womp womp! The earth just died! Here's how much money you made:</h1>
-        <h1>K{{cashObtained}}</h1>
+        <h1>Womp womp! The earth just died! Here's how much money you made: K{{cashObtained}}</h1>
      </div>
    </div>
   </div>

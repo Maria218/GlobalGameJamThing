@@ -1,7 +1,7 @@
 <template>
     <div class="container my-12 mx-auto">
-        <div v-if="!gameOver" class="flex flex-wrap">
-            <div v-for="index in cardInfo.slice(0,4)" v-bind:key="index" class="cards p-5 sm:w-1/2 md:w-1/2 lg:w-1/2">
+        <div class="flex flex-wrap">
+            <div v-for="index in cardInfo.sort(() => Math.random() - 0.5).slice(0,4)" v-bind:key="index" class="cards p-5 sm:w-1/2 md:w-1/2 lg:w-1/2">
                 <div @click="effects(index.days, index.money)" class="max-w-sm w-full lg:flex rounded-lg border-r border-b border-l border-t border-gray-700 lg:border-l lg:border-t lg:border-r lg:border-b lg:border-gray-700 bg-white">
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2">
@@ -9,12 +9,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div v-else>
-            <div>
-                <h1>Womp womp! The earth just died! Here's how much money you made:</h1>
-                <h1>{{index.money}}</h1>
             </div>
         </div>
     </div>
@@ -243,14 +237,6 @@
                 this.calcDays(days);
                 this.calcCash(money);
                 object = this.cardInfo.splice(0,4);
-                if (this.daysLeft <= 0) {
-                    this.gameOver = true;
-                }
-            },
-            endGame() {
-                if (this.daysLeft <= 0) {
-                    this.gameOver = false;
-                }
             },
             animateCards(){
                 anime({

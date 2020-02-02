@@ -264,7 +264,7 @@
             },
             endGame() {
                 if (this.daysLeft <= 0) {
-                    this.gameOver === true;
+                    this.gameOver = false;
                 }
             },
         },

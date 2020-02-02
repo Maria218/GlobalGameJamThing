@@ -5,6 +5,19 @@
       <instructions />
    </div>
    <div v-if="!instructions">
+
+     <div class="earthPosition">
+        <div v-if="daysLeft > 100 && daysLeft < 356">
+          <img class="earth" src="./../assets/images/ok-earth.png" alt="">
+        </div>
+        <div v-if="daysLeft < 100">
+          <img class="earth" src="./../assets/images/bad-earth.png" alt="">
+        </div>
+        <div v-if="daysLeft > 357">
+          <img class="earth" src="./../assets/images/good-earth.png" alt="">
+        </div>
+     </div>
+
      <cards />
      <h2>You have {{ choicesLeft }} choices left </h2>
      <h2>You have made K{{ cashObtained }}</h2>
@@ -17,6 +30,7 @@
 import Instructions from './Instructions.vue';
 import Cards from './Cards.vue'
 import { mapState } from "vuex";
+// import okearth from './../assets/images/ok-earth.png'
 
 export default {
   name: 'HelloWorld',
@@ -45,6 +59,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   #main {
+    /* justify-content: center; */
     padding-top: 60px;
   }
   h3 {
@@ -60,5 +75,13 @@ export default {
   }
   a {
     color: #42b983;
+  }
+  .earth {
+    height: 300px;
+    width: 300px;
+  }
+  .earthPosition {
+    display: flex;
+    justify-content: center;
   }
 </style>

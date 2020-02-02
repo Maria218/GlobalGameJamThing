@@ -263,7 +263,7 @@
             },
             endGame() {
                 if (this.daysLeft <= 0) {
-                    this.gameOver === false;
+                    this.gameOver = false;
                 }
             },
             animateCards(){

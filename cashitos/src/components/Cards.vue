@@ -13,7 +13,8 @@
         </div>
         <div v-else>
             <div>
-                <h1>The earth just died! Here's your score</h1>
+                <h1>Womp womp! The earth just died! Here's how much money you made:</h1>
+                <h1>{{index.money}}</h1>
             </div>
         </div>
     </div>
@@ -21,6 +22,7 @@
 
 <script>
     import { mapMutations } from "vuex";
+    import anime from 'animejs/lib/anime.es.js';
 
     var object = [
             {
@@ -250,9 +252,21 @@
                     this.gameOver = false;
                 }
             },
+            animateCards(){
+                anime({
+                    targets: '.cards',
+                    scale:{
+                        value: [1,0.9],
+                        duration: 1200,
+                        easing: 'linear'
+                    },
+                    loop: true
+                });
+            }
         },
 
         mounted() {
+            this.animateCards();
             this.endGame();
         },
         

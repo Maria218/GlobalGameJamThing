@@ -14,9 +14,6 @@
             </div>
         </div>
 
-        <h1>You have {{daysLeft}} days left</h1>
-        <h1>You have made K{{money}}</h1>
-
     </div>
 </template>
 

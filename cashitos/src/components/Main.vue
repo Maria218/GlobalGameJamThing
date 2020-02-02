@@ -7,10 +7,9 @@
 
    </div>
    <div>
-     <h1>data from another component</h1>
-     <h2>you have {{ choicesLeft }} choices left </h2>
-     <h2>K {{ cashObtained }}</h2>
-     <h2>only {{ daysLeft }} days left </h2>
+     <h2>You have {{ choicesLeft }} choices left </h2>
+     <h2>You have made K{{ cashObtained }}</h2>
+     <h2>There are only {{ daysLeft }} days left </h2>
 
    </div>
   </div>

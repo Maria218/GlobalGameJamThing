@@ -9,13 +9,13 @@
 
      <div class="earthPosition">
         <div v-if="daysLeft > 100 && daysLeft < 356">
-          <img class="earth" src="./../assets/images/ok-earth.png" alt="">
+          <img class="earth" src="./../assets/images/ok-earth.png" alt="mediocre earth">
         </div>
         <div v-if="daysLeft < 100">
-          <img class="earth" src="./../assets/images/bad-earth.png" alt="">
+          <img class="earth" src="./../assets/images/bad-earth.png" alt="terrible earth">
         </div>
         <div v-if="daysLeft > 357">
-          <img class="earth" src="./../assets/images/good-earth.png" alt="">
+          <img class="earth" src="./../assets/images/good-earth.png" alt="thriving earth">
         </div>
      </div>
 

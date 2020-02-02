@@ -19,19 +19,6 @@
     </div>
 </template>
 
-<style scoped>
-    h2 {
-        color: black,
-    }
-    .cards {
-        display: flex;
-        justify-content: center;
-    }
-    .description {
-        text-align: center;
-    }
-</style>
-
 <script>
     import { mapMutations } from "vuex";
 
@@ -240,10 +227,6 @@
 
     export default {
         name: "Cards",
-        render: function() {
-            // console.log(this.daysLeft)
-            return this.endGame();
-        },
         data: () => ({
             cardInfo: object,
             // daysLeft: 365,
@@ -275,3 +258,16 @@
         
     }
 </script>
+
+<style scoped>
+    h2 {
+        color: black,
+    }
+    .cards {
+        display: flex;
+        justify-content: center;
+    }
+    .description {
+        text-align: center;
+    }
+</style>

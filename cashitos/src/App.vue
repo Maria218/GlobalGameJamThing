@@ -1,4 +1,4 @@
-<template class="main">
+<template>
   <div id="app">
     <Main />
   </div>
@@ -21,10 +21,9 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    /* margin-top: 60px; */
+  }
+  body, html {
+    min-height: 100%;
     background-color: #FFE4B5;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 </style>

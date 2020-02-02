@@ -1,10 +1,8 @@
 <template>
     <div>
         <div>
-            <h1 class="bg-purple text-black sm:bg-green md:bg-blue md:text-yellow lg:bg-red xl:bg-orange ...">Test</h1>
-
-            <div v-for="index in cardInfo" v-bind:key="index">
-                <div @click="effects(index.days, index.money)" class="max-w-sm rounded overflow-hidden shadow-lg">
+            <div v-for="index in cardInfo" v-bind:key="index" class="cards">
+                <div @click="effects(index.days, index.money)" class="max-w-sm w-full lg:flex rounded-lg border-r border-b border-l border-gray-700 lg:border-l-0 lg:border-t lg:border-gray-700 bg-white">
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2">
                             <h1>{{index.description}}</h1>
@@ -13,14 +11,24 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
-<script>
-import { mapMutations } from "vuex";
+<style scoped>
+    h2 {
+        color: black,
+    }
+    .cards {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+    }
+</style>
 
-var object = (
+<script>
+    import { mapMutations } from "vuex";
+
+    var object = (
         {
             object1: {
                 description: "Cut all the trees",
@@ -225,10 +233,7 @@ var object = (
         }
     )
 
-
-
-export default {
-        
+    export default {
         name: "Cards",
         data: () => ({
             cardInfo: object,

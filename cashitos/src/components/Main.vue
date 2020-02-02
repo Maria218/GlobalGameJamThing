@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="instructions">
+    <div v-if="instructions" id="main">
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click.once="click">Click to Start</button>
       <instructions />
       <cards />
@@ -10,7 +10,6 @@
      <h2>You have {{ choicesLeft }} choices left </h2>
      <h2>You have made K{{ cashObtained }}</h2>
      <h2>There are only {{ daysLeft }} days left </h2>
-
    </div>
   </div>
 </template>
@@ -19,7 +18,6 @@
 import Instructions from './Instructions.vue';
 import Cards from './Cards.vue'
 import { mapState } from "vuex";
-
 
 export default {
   name: 'HelloWorld',
@@ -46,18 +44,21 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+  #main {
+    padding-top: 60px;
+  }
+  h3 {
+    margin: 40px 0 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  a {
+    color: #42b983;
+  }
 </style>

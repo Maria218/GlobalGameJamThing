@@ -1,7 +1,8 @@
 <template>
     <div class="container my-12 mx-auto">
         <div class="flex flex-wrap">
-            <div v-for="index in cardInfo" v-bind:key="index" class="cards p-5 sm:w-1/2 md:w-1/2 lg:w-1/2">
+            <div v-for="index in cardInfo.slice(0,4)" v-bind:key="index" class="p-5 sm:w-1/2 md:w-1/2 lg:w-1/2">
+
                 <div @click="effects(index.days, index.money)" class="max-w-sm w-full lg:flex rounded-lg border-r border-b border-l border-t border-gray-700 lg:border-l lg:border-t lg:border-r lg:border-b lg:border-gray-700 bg-white">
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2">
@@ -238,7 +239,8 @@
         data: () => ({
             cardInfo: object,
             daysLeft: 365,
-            money: 0
+            money: 0,
+            control:0
         }),
         methods: {
             ...mapMutations(["makeChoice", "calcDays","calcCash"]),
@@ -248,6 +250,8 @@
                 this.makeChoice();
                 this.calcDays(days);
                 this.calcCash(money);
+                //this.control += 4;
+                object = this.cardInfo.splice(0,4);
             }
         }
     }

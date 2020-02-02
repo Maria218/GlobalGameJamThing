@@ -7,13 +7,13 @@
    <div v-if="!instructions">
 
      <div class="earthPosition">
-        <div v-if="daysLeft > 100 && daysLeft < 356">
+        <div v-if="daysLeft > 100 && daysLeft <= 365">
           <img class="earth" src="./../assets/images/ok-earth.png" alt="">
         </div>
         <div v-if="daysLeft < 100">
           <img class="earth" src="./../assets/images/bad-earth.png" alt="">
         </div>
-        <div v-if="daysLeft > 357">
+        <div v-if="daysLeft > 366">
           <img class="earth" src="./../assets/images/good-earth.png" alt="">
         </div>
      </div>
@@ -22,7 +22,7 @@
         <cards />
         <h2>You have {{ choicesLeft }} more choices!</h2>
         <h2>You have made K{{ cashObtained }}</h2>
-        <h2>There are only {{ daysLeft }} days left </h2>
+        <h2>There are {{ daysLeft }} days left </h2>
      </div>
      <div v-if="daysLeft < 0">
         <h1>Womp womp! The earth just died! Here's how much money you made:</h1>

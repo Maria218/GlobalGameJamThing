@@ -18,10 +18,16 @@
         </div>
      </div>
 
-     <cards />
-     <h2>You have {{ choicesLeft }} more choices!</h2>
-     <h2>You have made K{{ cashObtained }}</h2>
-     <h2>There are only {{ daysLeft }} days left </h2>
+     <div v-if="daysLeft > 0">
+        <cards />
+        <h2>You have {{ choicesLeft }} more choices!</h2>
+        <h2>You have made K{{ cashObtained }}</h2>
+        <h2>There are only {{ daysLeft }} days left </h2>
+     </div>
+     <div v-if="daysLeft < 0">
+        <h1>Womp womp! The earth just died! Here's how much money you made:</h1>
+        <h1>K{{cashObtained}}</h1>
+     </div>
    </div>
   </div>
 </template>
@@ -58,7 +64,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   #main {
-    /* justify-content: center; */
     padding-top: 60px;
   }
   h3 {

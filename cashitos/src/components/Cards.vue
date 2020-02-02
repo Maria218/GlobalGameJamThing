@@ -13,7 +13,8 @@
         </div>
         <div v-else>
             <div>
-                <h1>The earth just died! Here's your score</h1>
+                <h1>Womp womp! The earth just died! Here's how much money you made:</h1>
+                <h1>{{index.money}}</h1>
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@
      </div>
 
      <cards />
-     <h2>You have {{ choicesLeft }} choices left </h2>
+     <h2>You have {{ choicesLeft }} more choices!</h2>
      <h2>You have made K{{ cashObtained }}</h2>
      <h2>There are only {{ daysLeft }} days left </h2>
    </div>
@@ -30,7 +30,6 @@
 import Instructions from './Instructions.vue';
 import Cards from './Cards.vue'
 import { mapState } from "vuex";
-// import okearth from './../assets/images/ok-earth.png'
 
 export default {
   name: 'HelloWorld',

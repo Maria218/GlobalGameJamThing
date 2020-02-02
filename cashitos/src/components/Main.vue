@@ -1,8 +1,9 @@
 <template>
   <div>
     <div v-if="instructions" id="main">
-      <button class="bg-transparent hover:bg-gray-700 text-black-700 font-semibold hover:text-black py-2 px-4 border border-gray-800 rounded" @click.once="click">Click to Start</button>
       <instructions />
+      <button class="bg-transparent hover:bg-gray-700 text-black-700 font-semibold hover:text-black py-2 px-4 border border-gray-800 rounded" @click.once="click">Click to Start</button>
+
    </div>
    <div v-if="!instructions">
 
@@ -11,7 +12,7 @@
           <img class="earth" src="./../assets/images/ok-earth.png" alt="">
         </div>
         <div v-if="daysLeft < 100">
-          <img class="earth" src="./../assets/images/bad-earth.png" alt="">
+          <img class="earth" src="./../assets/images/bad-earth.png" alt="terrible earth">
         </div>
         <div v-if="daysLeft > 366">
           <img class="earth" src="./../assets/images/good-earth.png" alt="">

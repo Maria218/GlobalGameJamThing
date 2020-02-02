@@ -34,6 +34,7 @@
 
 <script>
     import { mapMutations } from "vuex";
+    import anime from 'animejs/lib/anime.es.js';
 
     var object = [
             {
@@ -265,9 +266,21 @@
                     this.gameOver === false;
                 }
             },
+            animateCards(){
+                anime({
+                    targets: '.cards',
+                    scale:{
+                        value: [1,0.9],
+                        duration: 1200,
+                        easing: 'linear'
+                    },
+                    loop: true
+                });
+            }
         },
 
         mounted() {
+            this.animateCards();
             this.endGame();
         },
         

@@ -1,8 +1,9 @@
 <template>
   <div>
     <div v-if="instructions" id="main">
-      <button class="bg-transparent hover:bg-gray-700 text-black-700 font-semibold hover:text-black py-2 px-4 border border-gray-800 rounded" @click.once="click">Click to Start</button>
       <instructions />
+      <button class="bg-transparent hover:bg-gray-700 text-black-700 font-semibold hover:text-black py-2 px-4 border border-gray-800 rounded" @click.once="click">Click to Start</button>
+
    </div>
    <div v-if="!instructions">
      <cards />

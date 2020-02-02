@@ -21,7 +21,9 @@
     .cards {
         display: flex;
         justify-content: center;
-        /* margin: 20px; */
+    }
+    .description {
+        text-align: center;
     }
 </style>
 

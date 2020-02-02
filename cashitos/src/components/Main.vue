@@ -3,10 +3,9 @@
     <div v-if="instructions" id="main">
       <button class="bg-transparent hover:bg-gray-700 text-black-700 font-semibold hover:text-black py-2 px-4 border border-gray-800 rounded" @click.once="click">Click to Start</button>
       <instructions />
-      <cards />
-
    </div>
-   <div>
+   <div v-if="!instructions">
+     <cards />
      <h2>You have {{ choicesLeft }} choices left </h2>
      <h2>You have made K{{ cashObtained }}</h2>
      <h2>There are only {{ daysLeft }} days left </h2>
@@ -32,12 +31,12 @@ export default {
     instructions: true
   }),
   computed: {
-            ...mapState(["choicesLeft","daysLeft","cashObtained"])
-        },
+    ...mapState(["choicesLeft","daysLeft","cashObtained"])
+  },
   methods: {
     click() {
       this.instructions = false
-    }
+    },
   },
 }
 </script>

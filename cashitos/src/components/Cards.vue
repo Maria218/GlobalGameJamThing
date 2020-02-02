@@ -1,15 +1,19 @@
 <template>
     <div class="container my-12 mx-auto">
-        <div class="flex flex-wrap">
+        <div v-if="!gameOver" class="flex flex-wrap">
             <div v-for="index in cardInfo.slice(0,4)" v-bind:key="index" class="cards p-5 sm:w-1/2 md:w-1/2 lg:w-1/2">
-
                 <div @click="effects(index.days, index.money)" class="max-w-sm w-full lg:flex rounded-lg border-r border-b border-l border-t border-gray-700 lg:border-l lg:border-t lg:border-r lg:border-b lg:border-gray-700 bg-white">
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2">
-                            <h1>{{index.description}}</h1>
+                            <h1 class="text-center">{{index.description}}</h1>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div v-if="gameOver" class="flex flex-wrap">
+            <div v-for="index in cardInfo.slice(0,4)" v-bind:key="index" class="cards p-5 sm:w-1/2 md:w-1/2 lg:w-1/2">
+                <h2>Womp, womp! Earth is dead now. Start again plsss</h2>
             </div>
         </div>
     </div>
@@ -240,18 +244,21 @@
             cardInfo: object,
             daysLeft: 365,
             money: 0,
-            control:0
+            control:0,
+            gameOver: false
         }),
         methods: {
             ...mapMutations(["makeChoice", "calcDays","calcCash"]),
             effects(days, money) {
-                //this.daysLeft += days
-                //this.money += money
                 this.makeChoice();
                 this.calcDays(days);
                 this.calcCash(money);
-                //this.control += 4;
                 object = this.cardInfo.splice(0,4);
+            },
+            endGame() {
+                if (this.daysLeft <= 0) {
+                    this.gameOver = true
+                }
             }
         }
     }

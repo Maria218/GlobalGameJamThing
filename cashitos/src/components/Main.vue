@@ -1,27 +1,34 @@
 <template>
   <div>
     <div v-if="instructions" id="main">
-      <button class="bg-transparent hover:bg-gray-700 text-black-700 font-semibold hover:text-black py-2 px-4 border border-gray-800 rounded" @click.once="click">Click to Start</button>
       <instructions />
+      <button class="bg-transparent hover:bg-gray-700 text-black-700 font-semibold hover:text-black py-2 px-4 border border-gray-800 rounded" @click.once="click">Click to Start</button>
+
    </div>
    <div v-if="!instructions">
 
      <div class="earthPosition">
         <div v-if="daysLeft > 100 && daysLeft < 356">
-          <img class="earth" src="./../assets/images/ok-earth.png" alt="">
+          <img class="earth" src="./../assets/images/ok-earth.png" alt="mediocre earth">
         </div>
         <div v-if="daysLeft < 100">
-          <img class="earth" src="./../assets/images/bad-earth.png" alt="">
+          <img class="earth" src="./../assets/images/bad-earth.png" alt="terrible earth">
         </div>
         <div v-if="daysLeft > 357">
-          <img class="earth" src="./../assets/images/good-earth.png" alt="">
+          <img class="earth" src="./../assets/images/good-earth.png" alt="thriving earth">
         </div>
      </div>
 
-     <cards />
-     <h2>You have {{ choicesLeft }} more choices!</h2>
-     <h2>You have made K{{ cashObtained }}</h2>
-     <h2>There are only {{ daysLeft }} days left </h2>
+     <div v-if="daysLeft > 0">
+        <cards />
+        <h2>You have {{ choicesLeft }} more choices!</h2>
+        <h2>You have made K{{ cashObtained }}</h2>
+        <h2>There are only {{ daysLeft }} days left </h2>
+     </div>
+     <div v-if="daysLeft < 0">
+        <h1>Womp womp! The earth just died! Here's how much money you made:</h1>
+        <h1>K{{cashObtained}}</h1>
+     </div>
    </div>
   </div>
 </template>
@@ -58,7 +65,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   #main {
-    /* justify-content: center; */
     padding-top: 60px;
   }
   h3 {

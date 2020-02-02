@@ -1,6 +1,6 @@
 <template>
     <div class="container my-12 mx-auto">
-        <div v-if="gameOver" class="flex flex-wrap">
+        <div v-if="!gameOver" class="flex flex-wrap">
             <div v-for="index in cardInfo.slice(0,4)" v-bind:key="index" class="cards p-5 sm:w-1/2 md:w-1/2 lg:w-1/2">
                 <div @click="effects(index.days, index.money)" class="max-w-sm w-full lg:flex rounded-lg border-r border-b border-l border-t border-gray-700 lg:border-l lg:border-t lg:border-r lg:border-b lg:border-gray-700 bg-white">
                     <div class="px-6 py-4">
@@ -13,24 +13,12 @@
         </div>
         <div v-else>
             <div>
-                <h1>The earth just died! Here's your score</h1>
+                <h1>Womp womp! The earth just died! Here's how much money you made:</h1>
+                <h1>{{index.money}}</h1>
             </div>
         </div>
     </div>
 </template>
-
-<style scoped>
-    h2 {
-        color: black,
-    }
-    .cards {
-        display: flex;
-        justify-content: center;
-    }
-    .description {
-        text-align: center;
-    }
-</style>
 
 <script>
     import { mapMutations } from "vuex";
@@ -241,16 +229,12 @@
 
     export default {
         name: "Cards",
-        render: function() {
-            // console.log(this.daysLeft)
-            return this.endGame();
-        },
         data: () => ({
             cardInfo: object,
-            daysLeft: 365,
+            // daysLeft: 365,
             money: 0,
             control:0,
-            gameOver: true,
+            gameOver: false,
         }),
         methods: {
             ...mapMutations(["makeChoice", "calcDays","calcCash"]),
@@ -259,7 +243,9 @@
                 this.calcDays(days);
                 this.calcCash(money);
                 object = this.cardInfo.splice(0,4);
-                this.endGame();
+                if (this.daysLeft <= 0) {
+                    this.gameOver = true;
+                }
             },
             endGame() {
                 if (this.daysLeft <= 0) {
@@ -288,3 +274,16 @@
         }
     }
 </script>
+
+<style scoped>
+    h2 {
+        color: black,
+    }
+    .cards {
+        display: flex;
+        justify-content: center;
+    }
+    .description {
+        text-align: center;
+    }
+</style>

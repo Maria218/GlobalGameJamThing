@@ -21,7 +21,9 @@
 </template>
 
 <script>
-    var object = (
+import { mapMutations } from "vuex";
+
+var object = (
         {
             object1: {
                 description: "Cut all the trees",
@@ -228,7 +230,8 @@
 
 
 
-    export default {
+export default {
+        
         name: "Cards",
         data: () => ({
             cardInfo: object,
@@ -236,9 +239,13 @@
             money: 0
         }),
         methods: {
+            ...mapMutations(["makeChoice", "calcDays","calcCash"]),
             effects(days, money) {
-                this.daysLeft += days
-                this.money += money
+                //this.daysLeft += days
+                //this.money += money
+                this.makeChoice();
+                this.calcDays(days);
+                this.calcCash(money);
             }
         }
     }

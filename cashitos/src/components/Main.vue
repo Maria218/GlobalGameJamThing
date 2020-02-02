@@ -1,9 +1,16 @@
 <template>
   <div>
     <div v-if="instructions">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="click">Click to Start</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click.once="click">Click to Start</button>
       <instructions />
       <cards />
+
+   </div>
+   <div>
+     <h1>data from another component</h1>
+     <h2>you have {{ choicesLeft }} choices left </h2>
+     <h2>K {{ cashObtained }}</h2>
+     <h2>only {{ daysLeft }} days left </h2>
 
    </div>
   </div>
@@ -12,6 +19,8 @@
 <script>
 import Instructions from './Instructions.vue';
 import Cards from './Cards.vue'
+import { mapState } from "vuex";
+
 
 export default {
   name: 'HelloWorld',
@@ -25,6 +34,9 @@ export default {
   data: () => ({
     instructions: true
   }),
+  computed: {
+            ...mapState(["choicesLeft","daysLeft","cashObtained"])
+        },
   methods: {
     click() {
       this.instructions = false

@@ -283,6 +283,8 @@
             this.animateCards();
             this.endGame();
         },
-        
+        updated(){
+            this.animateCards();
+        }
     }
 </script>

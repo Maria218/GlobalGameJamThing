@@ -15,7 +15,7 @@ We thought about what repair meant to us, looking at the state of the world toda
 
 [Enos Malunga]()
 
-[Kacha Mukabe}()
+[Kacha Mukabe]()
 
 [Maria Situmbeko](https://twitter.com/MariaSitumbeko)
 

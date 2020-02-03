@@ -2,7 +2,7 @@
   <div>
     <div v-if="instructions" id="main">
       <div class="earthPosition">
-                <img class="cover" src="./../assets/images/zero-days-left.png" alt="">
+                <img class="cover" src="@/assets/images/zero-days-left.png" alt="cover">
       </div>
       <instructions />
       <button class="bg-transparent hover:bg-gray-700 text-black-700 font-semibold hover:text-black py-2 px-4 border border-gray-800 rounded" @click.once="click">Click to Start</button>
@@ -12,13 +12,13 @@
 
      <div class="earthPosition">
         <div v-if="daysLeft > 100 && daysLeft <= 365">
-          <img class="earth" src="./../assets/images/ok-earth.png" alt="">
+          <img class="earth" src="@/assets/images/ok-earth.png" alt="mediocre earth">
         </div>
         <div v-if="daysLeft < 100">
-          <img class="earth" src="./../assets/images/bad-earth.png" alt="terrible earth">
+          <img class="earth" src="@/assets/images/bad-earth.png" alt="terrible earth">
         </div>
         <div v-if="daysLeft > 366">
-          <img class="earth" src="./../assets/images/good-earth.png" alt="">
+          <img class="earth" src="@/assets/images/good-earth.png" alt="thriving earth">
         </div>
      </div>
 

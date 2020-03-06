@@ -2,7 +2,7 @@
   <div>
     <div v-if="instructions" id="main">
       <div class="earthPosition">
-                <img class="cover" src="@/assets/images/zero-days-left.png" alt="cover">
+      <img class="cover" src="@/assets/images/zero-days-left.png" alt="cover">
       </div>
       <instructions />
       <button class="bg-transparent hover:bg-gray-700 text-black-700 font-semibold hover:text-black py-2 px-4 border border-gray-800 rounded" @click.once="click">Click to Start</button>

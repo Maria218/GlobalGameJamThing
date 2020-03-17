@@ -223,9 +223,6 @@ export default new Vuex.Store({
     calcDays: (state, days) => {
       state.daysLeft += days;
     },
-    remove: (state) => {
-      state.cardInformation.splice(0, 4);
-    }
   },
   actions: {
   },

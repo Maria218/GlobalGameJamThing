@@ -2,7 +2,7 @@
   <div class="container my-12 mx-auto">
     <div class="flex flex-wrap">
       <div
-        v-for="index in shuffledList().slice(0,4)"
+        v-for="index in shuffledList.slice(this.index, this.index + 4)"
         v-bind:key="index.description"
         class="cards p-5 sm:w-1/2 md:w-1/2 lg:w-1/2"
       >
@@ -31,18 +31,23 @@ export default {
   data: () => ({
     money: 0,
     control: 0,
-    gameOver: false
+    gameOver: false,
+    index: 0
   }),
   computed: {
-    ...mapState(["cardInformation"])
+    ...mapState(["cardInformation"]),
+    shuffledList(){
+      let list = shuffle(this.cardInformation)
+      return Object.freeze(list)
+    }
   },
   methods: {
-    ...mapMutations(["makeChoice", "calcDays", "calcCash", "remove"]),
+    ...mapMutations(["makeChoice", "calcDays", "calcCash"]),
     effects(days, money) {
       this.makeChoice();
       this.calcDays(days);
       this.calcCash(money);
-      this.remove();
+      this.index += 4;
     },
     animateCards() {
       anime({
@@ -55,12 +60,6 @@ export default {
         loop: true
       });
     },
-    shuffledList() {
-      let questions;
-      questions = this.cardInformation;
-      questions = shuffle(questions);
-      return questions;
-    }
   },
 
   mounted() {
